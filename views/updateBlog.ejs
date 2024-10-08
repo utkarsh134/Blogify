@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head") %>
+    <title>Update Blog</title>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <div class="container mt-3">
+      <form
+        action="/blog/update/<%= blog._id %>"
+        method="post"
+      >
+        <div class="mb-3">
+          <label for="newTitle" class="form-label">New Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="newTitle"
+            name="newTitle"
+            value="<%= blog.title %>"
+            aria-describedby="newTitle"
+          >
+        </div>
+        <div class="mb-3">
+          <label for="newBody">New Body</label>
+          <textarea
+            class="form-control"
+            id="newBody"
+            name="newBody"
+          ><%= blog.body %></textarea>
+        </div>
+
+        <div class="mb-3">
+          <button class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+
+    <%- include("./partials/scripts") %>
+  </body>
+</html>
